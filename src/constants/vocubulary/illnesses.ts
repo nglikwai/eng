@@ -6,34 +6,16 @@ export default [
     english_meaning: 'The end of menstrual cycles in women.',
   },
   {
-    term: 'Pink eye',
-    chinese: '結膜炎',
-    chinese_meaning: '眼睛紅腫發炎，可能有分泌物',
-    english_meaning: 'Red, inflamed eye often caused by infection.',
-  },
-  {
     term: 'Runny nose',
     chinese: '流鼻水',
     chinese_meaning: '鼻腔分泌物過多，常見於感冒或過敏',
     english_meaning: 'Excess mucus drainage from the nose.',
   },
   {
-    term: 'Strep throat',
-    chinese: '鏈球菌喉嚨炎',
-    chinese_meaning: '由鏈球菌引起的喉嚨發炎，通常會喉痛與發燒',
-    english_meaning: 'Sore throat caused by streptococcal bacteria.',
-  },
-  {
     term: 'Stroke',
     chinese: '中風',
     chinese_meaning: '腦部血液供應中斷，導致神經功能障礙',
     english_meaning: 'Loss of brain function due to interrupted blood flow.',
-  },
-  {
-    term: 'Wheezing',
-    chinese: '喘鳴',
-    chinese_meaning: '呼吸時有尖銳聲音，常見於哮喘或支氣管炎',
-    english_meaning: 'High-pitched whistling sound while breathing.',
   },
   {
     term: 'Whooping cough',
@@ -200,12 +182,6 @@ export default [
     english_meaning: 'A condition where blood pressure is lower than normal.',
   },
   {
-    term: 'Menopause',
-    chinese: '更年期',
-    chinese_meaning: '女性月經永久停止的階段',
-    english_meaning: 'Natural end of menstruation in women.',
-  },
-  {
     term: 'Migrane',
     chinese: '偏頭痛',
     chinese_meaning: '一種劇烈頭痛，常伴隨噁心與畏光',
@@ -250,12 +226,6 @@ export default [
     english_meaning: 'Return of a disease after partial recovery.',
   },
   {
-    term: 'Runny nose',
-    chinese: '流鼻水',
-    chinese_meaning: '鼻腔分泌物過多',
-    english_meaning: 'Excess mucus dripping from the nose.',
-  },
-  {
     term: 'Sickle cell disease',
     chinese: '鐮刀型紅血球病',
     chinese_meaning: '遺傳性紅血球異常，導致多種併發症',
@@ -289,12 +259,6 @@ export default [
     english_meaning: 'Bacterial throat infection caused by Streptococcus.',
   },
   {
-    term: 'Stroke',
-    chinese: '中風',
-    chinese_meaning: '腦部血流中斷導致神經功能障礙',
-    english_meaning: 'Disruption of blood supply to the brain.',
-  },
-  {
     term: 'Shortness of breath',
     chinese: '呼吸急促',
     chinese_meaning: '感覺呼吸困難或不夠',
@@ -323,13 +287,6 @@ export default [
     chinese: '喘鳴',
     chinese_meaning: '呼吸時發出尖銳聲音',
     english_meaning: 'High-pitched whistling sound during breathing.',
-  },
-  {
-    term: 'Whooping cough',
-    chinese: '百日咳',
-    chinese_meaning: '劇烈咳嗽發作，常伴隨吸氣聲',
-    english_meaning:
-      'A contagious bacterial infection causing intense coughing.',
   },
   {
     term: 'Yeast infection',
