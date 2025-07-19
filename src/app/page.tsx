@@ -1,5 +1,5 @@
 'use client';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import classnames from 'classnames';
 import {
@@ -8,6 +8,7 @@ import {
   Languages,
   Volume1,
   Volume2,
+  VolumeOff,
 } from 'lucide-react';
 import { useDisplayVocabulary, useVocabStore } from 'src/store';
 import { WordType } from 'src/type/word.type';
@@ -15,7 +16,7 @@ import { WordType } from 'src/type/word.type';
 import vocabularyList from '@/constants/vocubulary';
 
 export default function Home() {
-  const { count } = useVocabStore();
+  const { count, muted, setMuted } = useVocabStore();
   const { displayVocabulary } = useDisplayVocabulary();
   const [showDetails, setShowDetails] = useState(true);
   const [showEng, setShowEng] = useState(true);
@@ -65,6 +66,17 @@ export default function Home() {
           >
             EN
           </button>
+          <button
+            className={classnames(
+              'bg-blue-200 px-6 py-4 rounded-xl flex items-center',
+              {
+                'opacity-30': !muted,
+              }
+            )}
+            onClick={() => setMuted(!muted)}
+          >
+            <VolumeOff />
+          </button>
         </div>
         <div className='flex flex-wrap gap-2'>
           <VocubButton vocabKey='sympton' className='bg-yellow-200' />
@@ -90,14 +102,14 @@ const WordCard = ({
   showDetails: boolean;
   showEng: boolean;
 }) => {
-  const { setCount, count } = useVocabStore();
+  const { setCount, count, muted } = useVocabStore();
   const { vocubLen } = useDisplayVocabulary();
   const [isSpeaking, setIsSpeaking] = useState(false);
   const toSpeakOut = (text: string) => {
     const utterance = new SpeechSynthesisUtterance(text);
     utterance.lang = 'en-US'; // or 'zh-HK' if using Chinese
     utterance.rate = 0.3; // Adjust the rate as needed
-    utterance.pitch = 1.4; // Adjust the pitch as needed
+    utterance.pitch = 1.2; // Adjust the pitch as needed
     utterance.onstart = () => {
       setIsSpeaking(true);
     };
@@ -107,6 +119,10 @@ const WordCard = ({
     speechSynthesis.speak(utterance);
   };
 
+  useEffect(() => {
+    if (muted || !word) return;
+    toSpeakOut(word.term);
+  }, [count]);
   if (!word) return <div className='text-center'>No word available</div>;
   return (
     <div className='flex flex-col items-center gap-10'>
@@ -134,12 +150,9 @@ const WordCard = ({
           <ChevronLeft />
         </button>
         <button
-          className={classnames(
-            'bg-green-200 px-10 py-2 rounded-xl transition',
-            {
-              'shadow-2xl scale-105': isSpeaking,
-            }
-          )}
+          className={classnames('bg-green-200 p-8 rounded-full transition', {
+            'shadow-2xl scale-110': isSpeaking,
+          })}
           onClick={() => toSpeakOut(word.term)}
           disabled={!word.term || isSpeaking}
         >

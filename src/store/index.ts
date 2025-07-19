@@ -7,6 +7,8 @@ type State = {
   setActiveVocabulary: (newState: Record<string, boolean>) => void;
   count: number;
   setCount: (newCount: number) => void;
+  muted: boolean;
+  setMuted: (newMuted: boolean) => void;
 };
 export const useVocabStore = create<State>(set => ({
   activeVocabulary: Object.keys(vocabularyList).reduce(
@@ -21,6 +23,8 @@ export const useVocabStore = create<State>(set => ({
 
   count: 0,
   setCount: (newCount: number) => set({ count: newCount }),
+  muted: false,
+  setMuted: (newMuted: boolean) => set({ muted: newMuted }),
 }));
 
 export const useDisplayVocabulary = () => {
