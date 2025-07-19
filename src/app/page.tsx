@@ -108,8 +108,8 @@ const WordCard = ({
   const toSpeakOut = (text: string) => {
     const utterance = new SpeechSynthesisUtterance(text);
     utterance.lang = 'en-US'; // or 'zh-HK' if using Chinese
-    utterance.rate = 0.4; // Adjust the rate as needed
-    utterance.pitch = 1.6; // Adjust the pitch as needed
+    utterance.rate = 0.5; // Adjust the rate as needed
+    utterance.pitch = 2; // Adjust the pitch as needed
     utterance.onstart = () => {
       setIsSpeaking(true);
     };
@@ -147,7 +147,7 @@ const WordCard = ({
           onClick={() => setCount(count > 0 ? count - 1 : vocubLen - 1)}
           disabled={count === 0}
         >
-          <ChevronLeft />
+          <ChevronLeft size={40} />
         </button>
         <button
           className={classnames('bg-green-200 p-8 rounded-full transition', {
@@ -162,7 +162,7 @@ const WordCard = ({
           className='bg-amber-200 p-4 rounded-full'
           onClick={() => setCount(count < vocubLen - 1 ? count + 1 : 0)}
         >
-          <ChevronRight />
+          <ChevronRight size={40} />
         </button>
       </div>
     </div>
