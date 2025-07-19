@@ -4,7 +4,7 @@ import medication from './medication';
 import pain from './pain';
 import procedures from './procedures';
 import sympton from './sympton';
-import test from './test';
+import test from './tests';
 import vaccine from './vaccine';
 
 export default {
