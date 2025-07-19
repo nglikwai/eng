@@ -108,8 +108,8 @@ const WordCard = ({
   const toSpeakOut = (text: string) => {
     const utterance = new SpeechSynthesisUtterance(text);
     utterance.lang = 'en-US'; // or 'zh-HK' if using Chinese
-    utterance.rate = 0.3; // Adjust the rate as needed
-    utterance.pitch = 1.4; // Adjust the pitch as needed
+    utterance.rate = 0.4; // Adjust the rate as needed
+    utterance.pitch = 1.6; // Adjust the pitch as needed
     utterance.onstart = () => {
       setIsSpeaking(true);
     };
