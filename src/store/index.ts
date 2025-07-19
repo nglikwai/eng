@@ -31,5 +31,7 @@ export const useDisplayVocabulary = () => {
     .map(([key]) => vocabularyList[key as keyof typeof vocabularyList])
     .flat();
 
-  return { displayVocabulary };
+  const vocubLen = displayVocabulary.length;
+
+  return { displayVocabulary, vocubLen };
 };

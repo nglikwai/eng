@@ -23,9 +23,9 @@ export default function Home() {
   const currentWord = displayVocabulary[count];
 
   return (
-    <div className='p-4 flex justify-between flex-col h-[95vh]'>
+    <div className='p-4 flex justify-between flex-col h-full'>
       {/* Action Menu */}
-      <div className='text-center'>
+      <div className='text-center text-xl'>
         <span>
           {count + 1} / {displayVocabulary.length}
         </span>
@@ -45,7 +45,7 @@ export default function Home() {
         <div className='flex gap-4'>
           <button
             className={classnames(
-              'bg-blue-200 px-4 py-2 rounded-xl flex items-center',
+              'bg-blue-200 px-6 py-4 rounded-xl flex items-center',
               {
                 'opacity-30': !showDetails,
               }
@@ -56,14 +56,14 @@ export default function Home() {
           </button>
           <button
             className={classnames(
-              'bg-blue-200 px-4 py-2 rounded-xl flex items-center font-black',
+              'bg-blue-200 px-6 py-4 rounded-xl flex items-center font-black text-xl',
               {
                 'opacity-30': !showDetails,
               }
             )}
             onClick={() => setShowEng(!showEng)}
           >
-            En
+            EN
           </button>
         </div>
         <div className='flex flex-wrap gap-2'>
@@ -91,11 +91,13 @@ const WordCard = ({
   showEng: boolean;
 }) => {
   const { setCount, count } = useVocabStore();
+  const { vocubLen } = useDisplayVocabulary();
   const [isSpeaking, setIsSpeaking] = useState(false);
   const toSpeakOut = (text: string) => {
     const utterance = new SpeechSynthesisUtterance(text);
     utterance.lang = 'en-US'; // or 'zh-HK' if using Chinese
     utterance.rate = 0.3; // Adjust the rate as needed
+    utterance.pitch = 2; // Adjust the pitch as needed
     utterance.onstart = () => {
       setIsSpeaking(true);
     };
@@ -115,9 +117,9 @@ const WordCard = ({
           <>
             <h3 className='text-2xl'>{word.chinese}</h3>
 
-            <div className='p-4 border rounded-xl flex flex-col items-center gap-4'>
+            <div className='p-4 border border-dotted rounded-xl flex flex-col items-center gap-4'>
               <p>{word.chinese_meaning}</p>
-              <p className=' '>{word.english_meaning}</p>
+              <p>{word.english_meaning}</p>
             </div>
           </>
         )}
@@ -126,7 +128,7 @@ const WordCard = ({
       <div className='flex gap-10 items-center'>
         <button
           className='bg-amber-200 p-4 rounded-full'
-          onClick={() => setCount(count - 1)}
+          onClick={() => setCount(count > 0 ? count - 1 : vocubLen - 1)}
           disabled={count === 0}
         >
           <ChevronLeft />
@@ -145,7 +147,7 @@ const WordCard = ({
         </button>
         <button
           className='bg-amber-200 p-4 rounded-full'
-          onClick={() => setCount(count + 1)}
+          onClick={() => setCount(count < vocubLen - 1 ? count + 1 : 0)}
         >
           <ChevronRight />
         </button>
