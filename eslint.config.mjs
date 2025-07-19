@@ -1,6 +1,7 @@
 import eslintPluginReact from 'eslint-plugin-react';
 import eslintPluginPrettier from 'eslint-plugin-prettier';
 import eslintPluginSimpleImportSort from 'eslint-plugin-simple-import-sort';
+import eslintPluginUnusedImports from 'eslint-plugin-unused-imports';
 import typescriptEslintPlugin from '@typescript-eslint/eslint-plugin';
 import typescriptEslintParser from '@typescript-eslint/parser';
 
@@ -18,6 +19,7 @@ export default [
       react: eslintPluginReact,
       prettier: eslintPluginPrettier,
       'simple-import-sort': eslintPluginSimpleImportSort,
+      'unused-imports': eslintPluginUnusedImports,
     },
     rules: {
       // Prettier
@@ -75,6 +77,7 @@ export default [
       // General
       'no-console': 'off',
       'no-debugger': 'warn',
+      'unused-imports/no-unused-imports': 'error',
     },
     settings: {
       react: {

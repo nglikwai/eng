@@ -1,101 +1,168 @@
-import Image from 'next/image';
+'use client';
+import { useState } from 'react';
+
+import classnames from 'classnames';
+import { ChevronLeft, ChevronRight, Languages, Volume1 } from 'lucide-react';
+import { useDisplayVocabulary, useVocabStore } from 'src/store';
+import { WordType } from 'src/type/word.type';
+
+import vocabularyList from '@/constants/vocubulary';
 
 export default function Home() {
-  return (
-    <div className='grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]'>
-      <main className='flex flex-col gap-8 row-start-2 items-center sm:items-start'>
-        <Image
-          className='dark:invert'
-          src='/next.svg'
-          alt='Next.js logo'
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className='list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]'>
-          <li className='mb-2'>
-            Get started by editing{' '}
-            <code className='bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold'>
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+  const { count } = useVocabStore();
+  const { displayVocabulary } = useDisplayVocabulary();
+  const [showDetails, setShowDetails] = useState(true);
+  const [showEng, setShowEng] = useState(true);
 
-        <div className='flex gap-4 items-center flex-col sm:flex-row'>
-          <a
-            className='rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5'
-            href='https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app'
-            target='_blank'
-            rel='noopener noreferrer'
+  const currentWord = displayVocabulary[count];
+
+  return (
+    <div className='p-4 flex justify-between flex-col h-[95vh]'>
+      {/* Action Menu */}
+      <div className='text-center'>
+        <span>
+          {count + 1} / {displayVocabulary.length}
+        </span>
+      </div>
+
+      {/* Word Card */}
+      <div className='mt-20 grow'>
+        <WordCard
+          word={currentWord}
+          showDetails={showDetails}
+          showEng={showEng}
+        />
+      </div>
+
+      {/* Control Bar */}
+      <div className='grid gap-4'>
+        <div className='flex gap-4'>
+          <button
+            className={classnames(
+              'bg-blue-200 px-4 py-2 rounded-xl flex items-center',
+              {
+                'opacity-30': !showDetails,
+              }
+            )}
+            onClick={() => setShowDetails(!showDetails)}
           >
-            <Image
-              className='dark:invert'
-              src='/vercel.svg'
-              alt='Vercel logomark'
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className='rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44'
-            href='https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app'
-            target='_blank'
-            rel='noopener noreferrer'
+            <Languages />
+          </button>
+          <button
+            className={classnames(
+              'bg-blue-200 px-4 py-2 rounded-xl flex items-center font-black',
+              {
+                'opacity-30': !showDetails,
+              }
+            )}
+            onClick={() => setShowEng(!showEng)}
           >
-            Read our docs
-          </a>
+            En
+          </button>
         </div>
-      </main>
-      <footer className='row-start-3 flex gap-6 flex-wrap items-center justify-center'>
-        <a
-          className='flex items-center gap-2 hover:underline hover:underline-offset-4'
-          href='https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app'
-          target='_blank'
-          rel='noopener noreferrer'
-        >
-          <Image
-            aria-hidden
-            src='/file.svg'
-            alt='File icon'
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className='flex items-center gap-2 hover:underline hover:underline-offset-4'
-          href='https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app'
-          target='_blank'
-          rel='noopener noreferrer'
-        >
-          <Image
-            aria-hidden
-            src='/window.svg'
-            alt='Window icon'
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className='flex items-center gap-2 hover:underline hover:underline-offset-4'
-          href='https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app'
-          target='_blank'
-          rel='noopener noreferrer'
-        >
-          <Image
-            aria-hidden
-            src='/globe.svg'
-            alt='Globe icon'
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+        <div className='flex flex-wrap gap-2'>
+          <VocubButton vocabKey='sympton' className='bg-yellow-200' />
+          <VocubButton vocabKey='illnesses' className='bg-orange-200' />
+          <VocubButton vocabKey='department' className='bg-red-200' />
+          <VocubButton vocabKey='vaccine' className='bg-green-200' />
+          <VocubButton vocabKey='medication' className='bg-purple-200' />
+          <VocubButton vocabKey='test' className='bg-pink-200' />
+          <VocubButton vocabKey='procedures' className='bg-teal-200' />
+          <VocubButton vocabKey='pain' className='bg-cyan-200' />
+        </div>
+      </div>
     </div>
   );
 }
+
+const WordCard = ({
+  word,
+  showDetails,
+  showEng,
+}: {
+  word: WordType;
+  showDetails: boolean;
+  showEng: boolean;
+}) => {
+  const { setCount, count } = useVocabStore();
+  const toSpeakOut = (text: string) => {
+    const utterance = new SpeechSynthesisUtterance(text);
+    utterance.lang = 'en-US'; // or 'zh-HK' if using Chinese
+    speechSynthesis.speak(utterance);
+  };
+
+  if (!word) return <div className='text-center'>No word available</div>;
+  return (
+    <div className='flex flex-col items-center gap-10'>
+      <h3 className='text-3xl font-black h-10'>{showEng && word.term}</h3>
+
+      <div className='flex flex-col items-center gap-10 h-60'>
+        {showDetails && (
+          <>
+            <h3 className='text-2xl'>{word.chinese}</h3>
+
+            <div className='p-4 border rounded-xl flex flex-col items-center gap-4'>
+              <p>{word.chinese_meaning}</p>
+              <p className=' '>{word.english_meaning}</p>
+            </div>
+          </>
+        )}
+      </div>
+
+      <div className='flex gap-10 items-center'>
+        <button
+          className='bg-amber-200 p-4 rounded-full'
+          onClick={() => setCount(count - 1)}
+          disabled={count === 0}
+        >
+          <ChevronLeft />
+        </button>
+        <button
+          className='bg-green-200 px-10 py-2 rounded-xl'
+          onClick={() => toSpeakOut(word.term)}
+          disabled={!word.term}
+        >
+          <Volume1 size={40} />
+        </button>
+        <button
+          className='bg-amber-200 p-4 rounded-full'
+          onClick={() => setCount(count + 1)}
+        >
+          <ChevronRight />
+        </button>
+      </div>
+    </div>
+  );
+};
+
+const VocubButton = ({
+  vocabKey,
+  className,
+}: {
+  vocabKey: keyof typeof vocabularyList;
+  className?: string;
+}) => {
+  const { activeVocabulary, setActiveVocabulary } = useVocabStore();
+
+  return (
+    <button
+      className={classnames(
+        'bg-blue-200 px-4 py-2 rounded-xl flex items-center',
+        {
+          'opacity-30': !activeVocabulary[vocabKey],
+        },
+        className
+      )}
+      onClick={() =>
+        setActiveVocabulary({
+          ...activeVocabulary,
+          [vocabKey]: !activeVocabulary[vocabKey],
+        })
+      }
+    >
+      <span className='font-black uppercase black w-4'>
+        {vocabKey.charAt(0)}
+      </span>
+    </button>
+  );
+};

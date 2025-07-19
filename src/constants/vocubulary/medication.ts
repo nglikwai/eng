@@ -1,0 +1,286 @@
+export default [
+  {
+    term: 'Adderall',
+    chinese: '愛得樂',
+    chinese_meaning: '用於治療注意力不足過動症 (ADHD)',
+    english_meaning:
+      'Used to treat attention deficit hyperactivity disorder (ADHD).',
+  },
+  {
+    term: 'Acetaminophen',
+    chinese: '撲熱息痛 / 退燒止痛藥',
+    chinese_meaning: '緩解輕度至中度疼痛與退燒',
+    english_meaning: 'Pain reliever and fever reducer.',
+  },
+  {
+    term: 'Alprozolam',
+    chinese: '阿普唑侖',
+    chinese_meaning: '治療焦慮與恐慌症',
+    english_meaning: 'Used to treat anxiety and panic disorders.',
+  },
+  {
+    term: 'Ambien',
+    chinese: '安眠藥 / 左旋佐匹克隆',
+    chinese_meaning: '短期治療失眠',
+    english_meaning: 'Used for short-term treatment of insomnia.',
+  },
+  {
+    term: 'Amlodipine',
+    chinese: '氨氯地平',
+    chinese_meaning: '降血壓與治療心絞痛',
+    english_meaning:
+      'Used to treat high blood pressure and chest pain (angina).',
+  },
+  {
+    term: 'Amoxicilline',
+    chinese: '阿莫西林',
+    chinese_meaning: '廣效抗生素，用於細菌感染',
+    english_meaning: 'Antibiotic used to treat various bacterial infections.',
+  },
+  {
+    term: 'Atorvastatin',
+    chinese: '阿托伐他汀',
+    chinese_meaning: '降低膽固醇與預防心血管疾病',
+    english_meaning: 'Lowers cholesterol and reduces risk of heart disease.',
+  },
+  {
+    term: 'Azithromycin',
+    chinese: '阿奇黴素',
+    chinese_meaning: '抗生素，用於呼吸道與耳朵感染',
+    english_meaning:
+      'Antibiotic used for respiratory, skin, and ear infections.',
+  },
+  {
+    term: 'Ciprofloxacin',
+    chinese: '環丙沙星',
+    chinese_meaning: '廣效抗生素，用於細菌感染',
+    english_meaning: 'Broad-spectrum antibiotic for bacterial infections.',
+  },
+  {
+    term: 'Clindamycin',
+    chinese: '克林黴素',
+    chinese_meaning: '治療皮膚、骨頭等感染',
+    english_meaning:
+      'Antibiotic for serious infections like bone and skin infections.',
+  },
+  {
+    term: 'Clonazepan',
+    chinese: '克隆納西泮',
+    chinese_meaning: '抗癲癇與抗焦慮藥',
+    english_meaning: 'Used to prevent seizures and treat panic attacks.',
+  },
+  {
+    term: 'Codeine',
+    chinese: '可待因',
+    chinese_meaning: '止痛與止咳藥物，具成癮性',
+    english_meaning: 'Pain reliever and cough suppressant, can be addictive.',
+  },
+  {
+    term: 'Coumadin / Plavix',
+    chinese: '抗凝血藥（如華法林）',
+    chinese_meaning: '預防血栓與中風',
+    english_meaning: 'Blood thinners to prevent clots and stroke.',
+  },
+  {
+    term: 'Cyclobenzaprine',
+    chinese: '環苯扎林',
+    chinese_meaning: '肌肉鬆弛劑，用於肌肉疼痛',
+    english_meaning: 'Muscle relaxant used to relieve muscle spasms.',
+  },
+  {
+    term: 'Cymbalta',
+    chinese: '度洛西汀',
+    chinese_meaning: '治療憂鬱症、焦慮與神經痛',
+    english_meaning: 'Used for depression, anxiety, and nerve pain.',
+  },
+  {
+    term: 'Doxicycline',
+    chinese: '多西環素',
+    chinese_meaning: '廣效抗生素，用於多種感染',
+    english_meaning:
+      'Antibiotic for infections like acne and respiratory diseases.',
+  },
+  {
+    term: 'Erythromycin',
+    chinese: '紅黴素',
+    chinese_meaning: '常用於喉嚨與皮膚感染',
+    english_meaning: 'Antibiotic used to treat a variety of infections.',
+  },
+  {
+    term: 'Gabapentin',
+    chinese: '加巴噴丁',
+    chinese_meaning: '治療癲癇與神經痛',
+    english_meaning: 'Used to treat seizures and nerve pain.',
+  },
+  {
+    term: 'Glipizide / Humalog',
+    chinese: '降血糖藥 / 胰島素',
+    chinese_meaning: '治療糖尿病',
+    english_meaning: 'Oral diabetes medicine and insulin.',
+  },
+  {
+    term: 'Hydrochlorothiazide',
+    chinese: '氫氯噻嗪',
+    chinese_meaning: '利尿劑，用於控制高血壓',
+    english_meaning:
+      'Diuretic used to treat high blood pressure and fluid retention.',
+  },
+  {
+    term: 'Hydrocortisone',
+    chinese: '氫化可的松',
+    chinese_meaning: '類固醇，治療發炎與過敏',
+    english_meaning: 'Steroid used for inflammation and allergic reactions.',
+  },
+  {
+    term: 'Ibuprofen',
+    chinese: '布洛芬',
+    chinese_meaning: '消炎止痛退燒藥',
+    english_meaning: 'Anti-inflammatory, pain reliever, and fever reducer.',
+  },
+  {
+    term: 'Lexapro',
+    chinese: '來士普',
+    chinese_meaning: '抗憂鬱藥',
+    english_meaning: 'Used to treat depression and anxiety.',
+  },
+  {
+    term: 'Lipitor',
+    chinese: '立普妥',
+    chinese_meaning: '降低膽固醇藥',
+    english_meaning:
+      'Used to lower bad cholesterol and raise good cholesterol.',
+  },
+  {
+    term: 'Lisinopril',
+    chinese: '賴諾普利',
+    chinese_meaning: '降血壓藥',
+    english_meaning: 'ACE inhibitor used to treat high blood pressure.',
+  },
+  {
+    term: 'Loratadine',
+    chinese: '樂服他定',
+    chinese_meaning: '抗組織胺藥，用於過敏',
+    english_meaning: 'Antihistamine for allergies.',
+  },
+  {
+    term: 'Lorazepam',
+    chinese: '勞拉西泮',
+    chinese_meaning: '抗焦慮藥',
+    english_meaning: 'Used to relieve anxiety.',
+  },
+  {
+    term: 'Losartan',
+    chinese: '洛沙坦',
+    chinese_meaning: '降血壓藥',
+    english_meaning: 'Angiotensin receptor blocker for high blood pressure.',
+  },
+  {
+    term: 'Lyrica',
+    chinese: '利瑞卡',
+    chinese_meaning: '治療神經疼痛與癲癇',
+    english_meaning: 'Used to treat nerve pain and epilepsy.',
+  },
+  {
+    term: 'Meloxicam',
+    chinese: '美洛昔康',
+    chinese_meaning: '止痛消炎藥',
+    english_meaning: 'Nonsteroidal anti-inflammatory drug (NSAID).',
+  },
+  {
+    term: 'Metformin',
+    chinese: '二甲雙胍',
+    chinese_meaning: '降血糖藥，用於糖尿病',
+    english_meaning: 'First-line treatment for type 2 diabetes.',
+  },
+  {
+    term: 'Metoprolol',
+    chinese: '美托洛爾',
+    chinese_meaning: '治療高血壓與心律不整',
+    english_meaning: 'Beta-blocker for blood pressure and arrhythmia.',
+  },
+  {
+    term: 'Naproxen',
+    chinese: '萘普生',
+    chinese_meaning: '止痛消炎藥',
+    english_meaning: 'Pain reliever and anti-inflammatory.',
+  },
+  {
+    term: 'Niaspan',
+    chinese: '煙酸 / 菸鹼酸',
+    chinese_meaning: '降低膽固醇',
+    english_meaning: 'Used to control cholesterol levels.',
+  },
+  {
+    term: 'Nexium / Omeprazole',
+    chinese: '胃藥（如耐適恩、奧美拉唑）',
+    chinese_meaning: '減少胃酸，治療胃食道逆流',
+    english_meaning: 'Reduces stomach acid and treats GERD.',
+  },
+  {
+    term: 'Oxycodone',
+    chinese: '羥考酮',
+    chinese_meaning: '強效止痛藥',
+    english_meaning: 'Opioid painkiller for moderate to severe pain.',
+  },
+  {
+    term: 'Pantoprazole',
+    chinese: '潘妥拉唑',
+    chinese_meaning: '抑制胃酸分泌',
+    english_meaning: 'Proton pump inhibitor for stomach acid.',
+  },
+  {
+    term: 'Prednisone',
+    chinese: '潑尼松',
+    chinese_meaning: '抗發炎類固醇',
+    english_meaning:
+      'Steroid used for inflammation, allergies, and immune suppression.',
+  },
+  {
+    term: 'Synthroid',
+    chinese: '合成甲狀腺素',
+    chinese_meaning: '治療甲狀腺功能低下',
+    english_meaning: 'Synthetic thyroid hormone replacement.',
+  },
+  {
+    term: 'Tetracycline',
+    chinese: '四環黴素',
+    chinese_meaning: '廣效抗生素',
+    english_meaning: 'Antibiotic used for bacterial infections.',
+  },
+  {
+    term: 'Tramadol',
+    chinese: '曲馬多',
+    chinese_meaning: '止痛藥，常用於中度至重度疼痛',
+    english_meaning: 'Pain reliever for moderate to severe pain.',
+  },
+  {
+    term: 'Trazadone',
+    chinese: '曲唑酮',
+    chinese_meaning: '抗憂鬱與助眠藥',
+    english_meaning: 'Antidepressant often used for sleep disorders.',
+  },
+  {
+    term: 'Wellbutrin',
+    chinese: '威爾布曲',
+    chinese_meaning: '抗憂鬱與戒菸輔助藥',
+    english_meaning: 'Used for depression and smoking cessation.',
+  },
+  {
+    term: 'Xanax',
+    chinese: '贊安諾',
+    chinese_meaning: '抗焦慮藥',
+    english_meaning: 'Used to treat anxiety and panic disorders.',
+  },
+  {
+    term: 'Zoloft',
+    chinese: '左洛復',
+    chinese_meaning: '抗憂鬱藥',
+    english_meaning: 'Used for depression, OCD, PTSD, and anxiety.',
+  },
+  {
+    term: 'Levothyroxine',
+    chinese: '左旋甲狀腺素',
+    chinese_meaning: '補充甲狀腺素，用於甲狀腺功能低下',
+    english_meaning: 'Synthetic thyroid hormone used for hypothyroidism.',
+  },
+];
