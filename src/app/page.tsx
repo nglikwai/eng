@@ -2,7 +2,13 @@
 import { useState } from 'react';
 
 import classnames from 'classnames';
-import { ChevronLeft, ChevronRight, Languages, Volume1 } from 'lucide-react';
+import {
+  ChevronLeft,
+  ChevronRight,
+  Languages,
+  Volume1,
+  Volume2,
+} from 'lucide-react';
 import { useDisplayVocabulary, useVocabStore } from 'src/store';
 import { WordType } from 'src/type/word.type';
 
@@ -85,9 +91,17 @@ const WordCard = ({
   showEng: boolean;
 }) => {
   const { setCount, count } = useVocabStore();
+  const [isSpeaking, setIsSpeaking] = useState(false);
   const toSpeakOut = (text: string) => {
     const utterance = new SpeechSynthesisUtterance(text);
     utterance.lang = 'en-US'; // or 'zh-HK' if using Chinese
+    utterance.rate = 0.3; // Adjust the rate as needed
+    utterance.onstart = () => {
+      setIsSpeaking(true);
+    };
+    utterance.onend = () => {
+      setIsSpeaking(false);
+    };
     speechSynthesis.speak(utterance);
   };
 
@@ -118,11 +132,16 @@ const WordCard = ({
           <ChevronLeft />
         </button>
         <button
-          className='bg-green-200 px-10 py-2 rounded-xl'
+          className={classnames(
+            'bg-green-200 px-10 py-2 rounded-xl transition',
+            {
+              'shadow-2xl scale-105': isSpeaking,
+            }
+          )}
           onClick={() => toSpeakOut(word.term)}
-          disabled={!word.term}
+          disabled={!word.term || isSpeaking}
         >
-          <Volume1 size={40} />
+          {isSpeaking ? <Volume2 size={40} /> : <Volume1 size={40} />}
         </button>
         <button
           className='bg-amber-200 p-4 rounded-full'
