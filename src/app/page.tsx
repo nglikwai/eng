@@ -87,6 +87,7 @@ export default function Home() {
           <VocubButton vocabKey='test' className='bg-pink-200' />
           <VocubButton vocabKey='procedures' className='bg-teal-200' />
           <VocubButton vocabKey='pain' className='bg-cyan-200' />
+          <VocubButton vocabKey='picsi' className='bg-blue-200' />
         </div>
       </div>
     </div>

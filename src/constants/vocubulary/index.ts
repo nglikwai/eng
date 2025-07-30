@@ -2,6 +2,7 @@ import department from './department';
 import illnesses from './illnesses';
 import medication from './medication';
 import pain from './pain';
+import picsi from './picsi';
 import procedures from './procedures';
 import sympton from './sympton';
 import test from './tests';
@@ -16,4 +17,5 @@ export default {
   test,
   procedures,
   pain,
+  picsi,
 };
